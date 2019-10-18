@@ -18,7 +18,7 @@ func Fuzz(data []byte) int {
 		return 0
 	}
 
-	t0 := uint32(1456236677)
+	t0 := uint64(1456236677)
 
 	v := float64(10000)
 
@@ -26,7 +26,7 @@ func Fuzz(data []byte) int {
 	s := New(t0)
 	t := t0
 	for len(data) >= 10 {
-		tdelta := uint32(binary.LittleEndian.Uint16(data))
+		tdelta := uint64(binary.LittleEndian.Uint16(data))
 		if t == t0 {
 			tdelta &= (1 << 14) - 1
 		}
